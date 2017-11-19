@@ -1,0 +1,6 @@
+id,entered,category,label,from,to,importancy,comment,location,tags,show,url,colour,background,type
+1,18/11/17 14:00,Family/Yvan,Birth,29/03/1977,,2,,Evry (Essonne),birth,1,https://farm3.staticflickr.com/2012/2083160904_3097e2e32c_n.jpg,,,TimelineChart.TYPE.INTERVAL
+2,18/11/17 14:01,Family/Mum,Birth,18/03/1947,,1,,,birth,1,https://www.google.co.nz/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png,,,TimelineChart.TYPE.INTERVAL
+3,18/11/17 14:02,Home,"1 Lanark Way, Wellington",29/03/2017,01/01/2019,1,,"1 Lanark Way, Wellington",home,1,https://farm3.staticflickr.com/2256/2085234090_f1a22f4af9_z.jpg,,,TimelineChart.TYPE.INTERVAL
+4,18/11/17 14:03,Home,"30 St Albans Ave, Karori, Wellington",29/03/2016,29/03/1977,1,,"30 St Albans Ave, Karori, Wellington",home,1,https://farm3.staticflickr.com/2225/2082390887_9eba7a90d6_n.jpg,,,TimelineChart.TYPE.INTERVAL
+5,18/11/17 14:04,Home,"64 Hungerford Rd, Houghton Bay, Wellington",22/10/2013,29/03/2016,1,,"64 Hungerford Rd, Houghton Bay, Wellington",homr,1,https://farm3.staticflickr.com/2096/2215518705_4c12b9b9b6_z.jpg,,,TimelineChart.TYPE.INTERVAL

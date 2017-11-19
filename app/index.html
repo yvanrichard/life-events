@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width,
+				   initial-scale=1" charset="utf-8" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>My life events</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/Caged/d3-tip/master/examples/example-styles.css" />
+    <link rel="stylesheet" href="timeline-chart.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet"
+	  href="//fonts.googleapis.com/css?family=Imprima" />
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    </style> 
+  </head>
+
+  <body>
+
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
+      <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
+
+    <div class="w3-indigo">
+      <button class="w3-button w3-deep-purple w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
+      <div class="w3-container">
+	<h1>My life events</h1>
+      </div>
+    </div>
+
+    <button type="button" onclick="addTask()">Add Task</button>
+
+    <section flex flex-full-center>
+      <div id="chart"></div>
+    </section>
+    
+    <script>
+      function openRightMenu() {
+      document.getElementById("rightMenu").style.display = "block";
+      }
+      function closeRightMenu() {
+      document.getElementById("rightMenu").style.display = "none";
+      }
+    </script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.7/d3-tip.min.js"></script>
+    <script src="timeline-chart.js"></script>
+
+    <script id="code">
+
+      'use strict';
+
+      const element = document.getElementById('chart');
+      const data = [{
+      label: 'Name',
+      data: [{
+      label: 'Pt 1',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 5, 1]),
+      url: 'https://www.google.co.nz/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+      }, {
+      label: 'Pt 2',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 6, 1])
+      }, {
+      label: 'Pt 3',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 7, 1])
+      }, {
+      label: 'Pt 4',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 8, 1])
+      }, {
+      label: 'Pt 5',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 9, 1])
+      }, {
+      label: 'Pt 6',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 10, 1]),
+      customClass: 'blue-dot'
+      }]
+      }, {
+      label: 'Type',
+      data: [{
+      label: 'Pt 7',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 5, 11]),
+      url: 'https://farm3.staticflickr.com/2256/2085234090_f1a22f4af9_z.jpg'
+      }, {
+      label: 'Pt 8',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 5, 15]),
+      url: 'https://farm3.staticflickr.com/2225/2082390887_9eba7a90d6_n.jpg'
+      }, {
+      label: 'Pt 9',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 7, 10])
+      }, {
+      label: 'I\'m a label with a custom class',
+      type: TimelineChart.TYPE.INTERVAL,
+      from: new Date([2016, 6, 1]),
+      to: new Date([2016, 7, 1]),
+      url: 'https://farm3.staticflickr.com/2012/2083160904_3097e2e32c_n.jpg'
+      // customClass: 'blue-interval'
+      }, {
+      label: 'Pt 10',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 10, 1])
+      }, {
+      label: 'Pt 11',
+      type: TimelineChart.TYPE.POINT,
+      at: new Date([2016, 11, 1])
+      }]
+      }, {
+      label: 'Imp',
+      data: [{
+      label: 'Label 1',
+      type: TimelineChart.TYPE.INTERVAL,
+      from: new Date([2016, 5, 15]),
+      to: new Date([2016, 7, 1]),
+      url: 'https://farm3.staticflickr.com/2096/2215518705_4c12b9b9b6_z.jpg'
+      }, {
+      label: 'Label 2',
+      type: TimelineChart.TYPE.INTERVAL,
+      from: new Date([2016, 8, 1]),
+      to: new Date([2016, 9, 12])
+      }]
+      }];
+
+      const timeline = new TimelineChart(element, data, {
+      enableLiveTimer: true,
+      tip: function(d) {
+      // return "<span style='color:red'>" + formatDate(d.at || d.from) + "</span>: " + d.label
+      return `<span style='color:red'> ${formatDate(d.at ||
+      d.from)} </span>: ${d.label}<br> ${makeimg(d.url)}`;
+      }
+      }).onVizChange(e => console.log(e));
+
+    </script>
+
+    <script id="csv">
+      'use strict';
+      var format1 = d3.time.format("%d/%m/%y %H:%M");
+      var format2 = d3.time.format("%d/%m/%Y");
+      var visdata;
+      d3.csv("life-events-yvan.csv", function(error, data) {
+      if (error) throw error;
+      data.forEach(function(d) {
+      d.id = +d.id;
+      d.entered = format1.parse(d.entered);
+      d.category = d.category;
+      d.label = d.label;
+      d.from = format2.parse(d["from"]);
+      d.to = format2.parse(d["to"]);
+      d.priority = d.importancy;
+      d.comment = d.comment;
+      d.location = d.location;
+      d.tags = d.tags;
+      d.show = +d.show;
+      d.url = d.url;
+      d.colour = d.colour;
+      d.background = d.background;
+      d.type = TimelineChart.TYPE.INTERVAL;
+      });
+      visdata = data;
+      
+      console.log(data[1]);
+      
+      const element = document.getElementById('chart');
+
+      const timeline = new TimelineChart(element, visdata, {
+      enableLiveTimer: true,
+      tip: function(d) {
+      // return "<span style='color:red'>" + formatDate(d.at || d.from) + "</span>: " + d.label
+      return `<span style='color:red'> ${formatDate(d.at ||
+      d.from)} </span>: ${d.label}<br> ${makeimg(d.url)}`;
+      }
+      }).onVizChange(e => console.log(e));
+
+      });
+      
+    </script>
+
+  </body>
+
+</html>

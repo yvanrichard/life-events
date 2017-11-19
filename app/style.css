@@ -1,0 +1,154 @@
+@import url(//fonts.googleapis.com/css?family=Imprima);
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Imprima', sans-serif; */
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body > section {
+    height: 100%;
+    width: 100%;
+}
+
+#chart {
+    width: 90%;
+    height: 85%;
+    background: #111;
+    opacity: 0.9;
+    border-radius: 5px;
+    border: 1px solid #111;
+}
+g.x.axis text {
+    fill: white;
+    font-size: 25px;
+}
+g.y.axis text {
+    fill: red;
+}
+svg g text.group-label {
+    /* fill: #FF996B; */
+    fill: #5400B8;
+}
+
+g.x.axis g.tick line {
+    fill: red;
+}
+
+
+
+#chart line {
+    stroke: #282828;
+}
+#chart line.group-section {
+    stroke: #000;
+}
+
+#chart line.vertical-marker.now {
+    stroke: #c00;
+}
+
+rect.interval.blue-interval {
+    fill: gray;
+    stroke: gray;
+    color: white;
+}
+
+#chart rect.chart-bounds {
+    fill: #222;
+    stroke: #000;
+}
+svg rect.chart-bounds {
+    fill: #000;
+    stroke: #000;
+}
+
+circle.blue-dot {
+    fill: blue;
+}
+
+
+/* Override d3tip */
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Tiny Flex Grid */
+
+[flex] {
+    display: flex;
+}
+[flex-fill] {
+    flex: 1;
+}
+[flex-full-center] {
+    align-items: top;
+    justify-content: center;
+    margin-top: 0px;
+}
+[flex-direction=column] {
+    flex-direction: column;
+}
+[flex-direction=row] {
+    flex-direction: row;
+}
+[flex-size="40"] {
+    flex: 40;
+}
+[flex-size="60"] {
+    flex: 60;
+}
+
+/* @font-face { */
+/*     font-family: 'Imprima', serif; */
+/*     src: url(//fonts.googleapis.com/css?family=Imprima); */
+/* } */
+
+
+.w3-bar-block .w3-bar-item {
+    background-color: #333;
+}
+.w3-bar-block {
+    background-color: #333;
+}
+
+h1 {
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    text-shadow: 2px 2px #333;
+    color: white;
+    font-size: 30px;
+    
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    height: 33px;
+    padding: 8px;
+    font: 10px sans-serif;
+    background: #ddd;
+    border: solid 1px #aaa;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+

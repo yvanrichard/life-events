@@ -1,0 +1,66 @@
+@import url(//fonts.googleapis.com/css?family=Imprima);
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body > section {
+    height: 100%;
+    width: 100%;
+}
+
+g.x.axis text {
+    fill: black;
+    font-size: 15px;
+}
+g.y.axis text {
+    fill: black;
+}
+
+g.x.axis g.tick line {
+    fill: red;
+}
+
+
+/* Tiny Flex Grid */
+
+[flex] {
+    display: flex;
+}
+[flex-fill] {
+    flex: 1;
+}
+[flex-full-center] {
+    align-items: top;
+    justify-content: center;
+    margin-top: 0px;
+}
+[flex-direction=column] {
+    flex-direction: column;
+}
+[flex-direction=row] {
+    flex-direction: row;
+}
+[flex-size="40"] {
+    flex: 40;
+}
+[flex-size="60"] {
+    flex: 60;
+}
+
+
+#box_form > *{
+    font-size:12px;
+    margin-bottom:15px;
+}
+#box_form > p > label{
+    display:block;
+    font-size:18px;
+}
+#box_form > p > input, #box_form > p > textarea{
+        width:300px;
+}
